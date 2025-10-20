@@ -118,14 +118,15 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display the right result after using Negative Key")
+    @DisplayName("should display the right result after using Negative Key after an Operator")
     void testMultiplicationWithNegativeKey() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(4);
         calc.pressBinaryOperationKey("x");
-        calc.pressNegativeKey();                ///ohne Fix = -4 ; mit Fix= -4 ; OnlineTR= -4
-        calc.pressDigitKey(2);                  ///ohne Fix= -42 ; mit Fix= 2  ; OnlineTR= 2
-        calc.pressEqualsKey();                  ///ohne Fix= -168; mit Fix= -8 ; OnlineTR= 8 Durch den Fix wird die Variable latestValue aktualisiert (-4)
+        calc.pressNegativeKeyAfterOperator();      ///ohne Fix = -4 ; mit Fix= -4 ; OnlineTR= -4
+        calc.pressDigitKey(2);                     ///ohne Fix= -42 ; mit Fix= 2  ; OnlineTR= 2
+        ///calc.pressNegativeKey();                ///Bei der richtigen Anwendung und nicht nach einem Operator (calc.pressBinaryOperationKey() ist die Methode richtig)
+        calc.pressEqualsKey();                     ///ohne Fix= -168; mit Fix= -8 ; OnlineTR= 8 Durch den Fix wird die Variable latestValue aktualisiert (-4)
 
         String expected = "-8";
         String actual = calc.readScreen();
