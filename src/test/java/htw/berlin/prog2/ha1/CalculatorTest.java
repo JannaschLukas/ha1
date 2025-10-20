@@ -1,5 +1,6 @@
 package htw.berlin.prog2.ha1;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -88,7 +89,33 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    ///weitere Tests
 
-    //TODO hier weitere Tests erstellen
+    @Test
+    @DisplayName("should display 0 when multiplying a number with 0")
+    void testMultipleWithZero() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("x");
+        calc.pressDigitKey(0);
+
+        String expected = "0";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("should display the result in integer when drawing the square root of square numbers")
+    void testSquareRootsOfSquareNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(9);
+        calc.pressUnaryOperationKey("√");
+
+        String expected = "3";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
 }
 
