@@ -93,7 +93,7 @@ class CalculatorTest {
 
     @Test
     @DisplayName("should display 0 when multiplying a number with 0")
-    void testMultipleWithZero() {
+    void testMultiplyWithZero() {
         Calculator calc = new Calculator();
         calc.pressDigitKey(5);
         calc.pressBinaryOperationKey("x");
@@ -123,10 +123,10 @@ class CalculatorTest {
         Calculator calc = new Calculator();
         calc.pressDigitKey(4);
         calc.pressBinaryOperationKey("x");
-        calc.pressNegativeKeyAfterOperator();      ///ohne Fix = -4 ; mit Fix= -4 ; OnlineTR= -4
-        calc.pressDigitKey(2);                     ///ohne Fix= -42 ; mit Fix= 2  ; OnlineTR= 2
-        ///calc.pressNegativeKey();                ///Bei der richtigen Anwendung und nicht nach einem Operator (calc.pressBinaryOperationKey() ist die Methode richtig)
-        calc.pressEqualsKey();                     ///ohne Fix= -168; mit Fix= -8 ; OnlineTR= 8 Durch den Fix wird die Variable latestValue aktualisiert (-4)
+        calc.pressNegativeKeyAfterOperator();      //ohne Fix = -4 ; mit Fix= -4 ; OnlineTR= -4
+        calc.pressDigitKey(2);                     //ohne Fix= -42 ; mit Fix= 2  ; OnlineTR= 2
+        //calc.pressNegativeKey();                 //Bei der richtigen Anwendung und nicht nach einem Operator (calc.pressBinaryOperationKey() ist die Methode richtig)
+        calc.pressEqualsKey();                     //ohne Fix= -168; mit Fix= -8 ; OnlineTR= 8 Durch den Fix wird die Variable latestValue aktualisiert (-4)
 
         String expected = "-8";
         String actual = calc.readScreen();
